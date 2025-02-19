@@ -1,12 +1,20 @@
-const button = document.getElementById("btn");
-const container = document.getElementById("main-container");
+const list = document.getElementById("list");
+const addItem = document.getElementById("addItem");
 
-function random(number){
-    return Math.floor(Math.random()*(number+1));
-}
+list.addEventListener("click", (e) => {
+  if (e.target.matches("li")) {
+    if (e.target.innerText === "JavaScript") {
+      e.target.style.backgroundColor = "blue";
+    } else if (e.target.innerText === "PHP") {
+      e.target.style.backgroundColor = "green";
+    } else {
+      e.target.style.backgroundColor = "yellow";
+    }
+  }
+});
 
-button.addEventListener("click",()=>{
-    const bgColor = `rgb(${random(255)},${random(255)} ,${random(255)})`;
-    container.style.backgroundColor = bgColor;
-
+addItem.addEventListener("click", function () {
+  const newElementchild = document.createElement("li");
+  newElementchild.textContent = "C++";
+  list.appendChild(newElementchild);
 });
